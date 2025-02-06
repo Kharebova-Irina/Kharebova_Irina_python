@@ -2,14 +2,14 @@
 import sys
 import math
 
-def read_circle_data(file_path):
+def circle_data(file_path):
     with open(file_path, 'r') as file:
         x = float(file.readline().strip())
         y = float(file.readline().strip())
         radius = float(file.readline().strip())
     return (x, y, radius)
 
-def read_points(file_path):
+def points_data(file_path):
     points = []
     with open(file_path, 'r') as file:
         for line in file:
@@ -17,32 +17,32 @@ def read_points(file_path):
             points.append((x, y))
     return points
 
-def point_position(circle, point):
-    x_c, y_c, radius = circle
-    x_p, y_p = point
-    distance_squared = (x_p - x_c)**2 + (y_p - y_c)**2
-    radius_squared = radius**2
+def position_data(circle, point):
+    x0, y0, radius = circle
+    x1, y1 = point
+    dist = (x1 - x0)**2 + (y1 - y0)**2
+    radius_2 = radius**2
 
-    if math.isclose(distance_squared, radius_squared, rel_tol=1e-9):
+    if math.isclose(dist, radius_2, rel_tol=1e-20):
         return 0
-    elif distance_squared < radius_squared:
+    elif dist < radius_2:
         return 1
     else:
         return 2
 
 def main():
     if len(sys.argv) != 3:
-        print("Usage: python program.py <circle_file> <points_file>")
+        print("Error")
         return
 
-    circle_file = sys.argv[1]
-    points_file = sys.argv[2]
+    cfile = sys.argv[1]
+    pfile = sys.argv[2]
 
-    circle = read_circle_data(circle_file)
-    points = read_points(points_file)
+    circle = circle_data(cfile)
+    points = points_data(pfile)
 
     for point in points:
-        position = point_position(circle, point)
+        position = position_data(circle, point)
         print(position)
 
 if __name__ == "__main__":
