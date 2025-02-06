@@ -14,8 +14,6 @@ a[0]=list_1[0]
 while i!=len(a)-1:
     for i in range(start, end, step):
         a[i]=list_1[i%k]
-        print(a)
-
     start=end
     end=start+step
 list_2=[]
