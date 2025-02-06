@@ -1,6 +1,7 @@
 import numpy as np
 
-a=np.array([1, 2, 3])
+a=map(int, input().split())
+a=list(a)
 cnt=0
 for i in range(len(a)):
     while a[i]!=a[1]:
