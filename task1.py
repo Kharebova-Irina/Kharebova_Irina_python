@@ -1,10 +1,11 @@
+import numpy as np
 numbers=int(input('Введи число: '))
 step=int(input('Введи шаг: '))
 list_1=[]
 for i in range(1, numbers+1):
     list_1.append(i)
 k=len(list_1)
-a=np.zeros(10)
+a=np.zeros(30)
 
 start=1
 end=start+step
