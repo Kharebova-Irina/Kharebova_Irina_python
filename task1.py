@@ -1,7 +1,6 @@
 import numpy as np
 import argparse
 
-
 parser = argparse.ArgumentParser(description='Создание массива')
 parser.add_argument('number', type=int, help='Введи число:')
 
